@@ -32,8 +32,8 @@ class CryptoTransaction extends Model
         'amount_usd' => 'decimal:2'
     ];
 
-    public function user()
+    public function telegramUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(TelegramUser::class, 'telegram_user_id');
     }
 }

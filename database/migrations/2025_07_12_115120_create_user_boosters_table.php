@@ -10,16 +10,16 @@ return new class extends Migration
     {
         Schema::create('user_boosters', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('telegram_user_id')->constrained()->onDelete('cascade');
             $table->string('booster_type');
             $table->integer('quantity');
             $table->integer('power_multiplier')->default(100);
             $table->timestamps();
 
             // Indexes
-            $table->index('user_id');
+            $table->index('telegram_user_id');
             $table->index('booster_type');
-            $table->index(['user_id', 'booster_type']);
+            $table->index(['telegram_user_id', 'booster_type']);
             $table->index('quantity');
         });
     }

@@ -27,7 +27,7 @@ return new class extends Migration
             $table->index('round_number');
             $table->index('result');
             $table->index(['battle_id', 'round_number']);
-            $table->index(['battle_id', 'user_id']);
+            $table->index(['battle_id', 'telegram_user_id']);
             $table->index(['telegram_user_id', 'result']);
         });
     }

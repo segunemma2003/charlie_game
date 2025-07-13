@@ -10,9 +10,9 @@ return new class extends Migration
     {
         Schema::create('battles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('player1_id')->constrained('telegram_telegram_users');
-            $table->foreignId('player2_id')->constrained('telegram_telegram_users');
-            $table->foreignId('winner_id')->nullable()->constrained('telegram_telegram_users');
+            $table->foreignId('player1_id')->constrained('telegram_users');
+            $table->foreignId('player2_id')->constrained('telegram_users');
+            $table->foreignId('winner_id')->nullable()->constrained('telegram_users');
             $table->enum('battle_type', ['pvp', 'pve', 'tournament']);
             $table->enum('battle_style', ['funny', 'hardcore']);
             $table->integer('card_count');

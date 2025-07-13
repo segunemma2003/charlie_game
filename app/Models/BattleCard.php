@@ -35,7 +35,7 @@ class BattleCard extends Model
     }
 
     public function telegramUser()
-    {
-        return $this->belongsTo(TelegramUser::class);
-    }
+{
+    return $this->belongsTo(TelegramUser::class, 'telegram_user_id');
+}
 }

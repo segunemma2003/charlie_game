@@ -16,8 +16,8 @@ class UserBooster extends Model
         'power_multiplier'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(TelegramUser::class);
-    }
+    public function telegramUser()
+{
+    return $this->belongsTo(TelegramUser::class, 'telegram_user_id');
+}
 }
