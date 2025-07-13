@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\ImageManager;
+use Intervention\Image\Laravel\Facades\Image; // Laravel 11 compatible
 
 class FileUploadController extends Controller
 {
@@ -17,14 +17,12 @@ class FileUploadController extends Controller
         $image = $request->file('image');
         $filename = 'cards/' . uniqid() . '.' . $image->getClientOriginalExtension();
 
-        // Resize and optimize image
-        $manager = new ImageManager(['driver' => 'gd']);
-        $img = $manager->make($image)->resize(400, 400, function ($constraint) {
-            $constraint->aspectRatio();
-            $constraint->upsize();
-        });
+        // Using Intervention Image v3 (Laravel 11 compatible)
+        $processedImage = Image::read($image)
+            ->resize(400, 400)
+            ->encode();
 
-        Storage::put($filename, $img->encode());
+        Storage::put($filename, $processedImage);
 
         return response()->json([
             'success' => true,
@@ -42,7 +40,11 @@ class FileUploadController extends Controller
         $banner = $request->file('banner');
         $filename = 'tournaments/' . uniqid() . '.' . $banner->getClientOriginalExtension();
 
-        Storage::put($filename, file_get_contents($banner));
+        $processedBanner = Image::read($banner)
+            ->resize(1200, 400)
+            ->encode();
+
+        Storage::put($filename, $processedBanner);
 
         return response()->json([
             'success' => true,

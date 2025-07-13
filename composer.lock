@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c46ab97a4e589e23fcf5483e07048bcc",
+    "content-hash": "a77ea8352eefb404511baff1151b9e31",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -905,33 +905,32 @@
         },
         {
             "name": "darkaonline/l5-swagger",
-            "version": "9.0.1",
+            "version": "8.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DarkaOnLine/L5-Swagger.git",
-                "reference": "2c26427f8c41db8e72232415e7287313e6b6a2e2"
+                "reference": "4cf2b3faae9e9cffd05e4eb6e066741bf56f0a85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DarkaOnLine/L5-Swagger/zipball/2c26427f8c41db8e72232415e7287313e6b6a2e2",
-                "reference": "2c26427f8c41db8e72232415e7287313e6b6a2e2",
+                "url": "https://api.github.com/repos/DarkaOnLine/L5-Swagger/zipball/4cf2b3faae9e9cffd05e4eb6e066741bf56f0a85",
+                "reference": "4cf2b3faae9e9cffd05e4eb6e066741bf56f0a85",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.0 || ^2.0",
                 "ext-json": "*",
-                "laravel/framework": "^12.0 || ^11.0",
-                "php": "^8.2",
-                "swagger-api/swagger-ui": ">=5.18.3",
+                "laravel/framework": "^11.0 || ^10.0 || ^9.0 || >=8.40.0 || ^7.0",
+                "php": "^7.2 || ^8.0",
+                "swagger-api/swagger-ui": "^3.0 || >=4.1.3",
                 "symfony/yaml": "^5.0 || ^6.0 || ^7.0",
-                "zircote/swagger-php": "^5.0.0"
+                "zircote/swagger-php": "^3.2.0 || ^4.0.0"
             },
             "require-dev": {
                 "mockery/mockery": "1.*",
-                "orchestra/testbench": "^10.0 || ^9.0 || ^8.0 || 7.* || ^6.15 || 5.*",
+                "orchestra/testbench": "^9.0 || ^8.0 || 7.* || ^6.15 || 5.*",
                 "php-coveralls/php-coveralls": "^2.0",
-                "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^11.0"
+                "phpunit/phpunit": "^11.0 || ^10.0 || ^9.5"
             },
             "type": "library",
             "extra": {
@@ -974,7 +973,7 @@
             ],
             "support": {
                 "issues": "https://github.com/DarkaOnLine/L5-Swagger/issues",
-                "source": "https://github.com/DarkaOnLine/L5-Swagger/tree/9.0.1"
+                "source": "https://github.com/DarkaOnLine/L5-Swagger/tree/8.6.5"
             },
             "funding": [
                 {
@@ -982,7 +981,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-28T06:25:02+00:00"
+            "time": "2025-02-06T14:54:32+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -1641,21 +1640,21 @@
         },
         {
             "name": "endroid/qr-code",
-            "version": "6.0.8",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/qr-code.git",
-                "reference": "8102273afbcd5e3d95f1faaab2c5aa31e3637f61"
+                "reference": "393fec6c4cbdc1bd65570ac9d245704428010122"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/qr-code/zipball/8102273afbcd5e3d95f1faaab2c5aa31e3637f61",
-                "reference": "8102273afbcd5e3d95f1faaab2c5aa31e3637f61",
+                "url": "https://api.github.com/repos/endroid/qr-code/zipball/393fec6c4cbdc1bd65570ac9d245704428010122",
+                "reference": "393fec6c4cbdc1bd65570ac9d245704428010122",
                 "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "^3.0",
-                "php": "^8.2"
+                "php": "^8.1"
             },
             "require-dev": {
                 "endroid/quality": "dev-main",
@@ -1672,7 +1671,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "6.x-dev"
+                    "dev-main": "5.x-dev"
                 }
             },
             "autoload": {
@@ -1701,7 +1700,7 @@
             ],
             "support": {
                 "issues": "https://github.com/endroid/qr-code/issues",
-                "source": "https://github.com/endroid/qr-code/tree/6.0.8"
+                "source": "https://github.com/endroid/qr-code/tree/5.1.0"
             },
             "funding": [
                 {
@@ -1709,7 +1708,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-10T14:28:45+00:00"
+            "time": "2024-09-08T08:52:55+00:00"
         },
         {
             "name": "fgrosse/phpasn1",
@@ -9431,41 +9430,36 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "5.1.3",
+            "version": "4.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "b8ba6bd99805c0ae09a38d1b26c1c92820509bd0"
+                "reference": "7df10e8ec47db07c031db317a25bef962b4e5de1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/b8ba6bd99805c0ae09a38d1b26c1c92820509bd0",
-                "reference": "b8ba6bd99805c0ae09a38d1b26c1c92820509bd0",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/7df10e8ec47db07c031db317a25bef962b4e5de1",
+                "reference": "7df10e8ec47db07c031db317a25bef962b4e5de1",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "nikic/php-parser": "^4.19 || ^5.0",
-                "php": ">=7.4",
+                "php": ">=7.2",
                 "psr/log": "^1.1 || ^2.0 || ^3.0",
                 "symfony/deprecation-contracts": "^2 || ^3",
-                "symfony/finder": "^5.0 || ^6.0 || ^7.0",
-                "symfony/yaml": "^5.0 || ^6.0 || ^7.0"
-            },
-            "conflict": {
-                "symfony/process": ">=6, <6.4.14"
+                "symfony/finder": ">=2.2",
+                "symfony/yaml": ">=3.3"
             },
             "require-dev": {
                 "composer/package-versions-deprecated": "^1.11",
-                "doctrine/annotations": "^2.0",
-                "friendsofphp/php-cs-fixer": "^3.62.0",
-                "phpstan/phpstan": "^1.6 || ^2.0",
-                "phpunit/phpunit": "^9.0",
-                "rector/rector": "^1.0 || ^2.0",
-                "vimeo/psalm": "^4.30 || ^5.0"
+                "doctrine/annotations": "^1.7 || ^2.0",
+                "friendsofphp/php-cs-fixer": "^2.17 || 3.62.0",
+                "phpstan/phpstan": "^1.6",
+                "phpunit/phpunit": ">=8",
+                "vimeo/psalm": "^4.23"
             },
             "suggest": {
-                "doctrine/annotations": "^2.0"
+                "doctrine/annotations": "^1.7 || ^2.0"
             },
             "bin": [
                 "bin/openapi"
@@ -9473,7 +9467,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.x-dev"
+                    "dev-master": "4.x-dev"
                 }
             },
             "autoload": {
@@ -9501,8 +9495,8 @@
                     "homepage": "https://radebatz.net"
                 }
             ],
-            "description": "Generate interactive documentation for your RESTful API using PHP attributes (preferred) or PHPDoc annotations",
-            "homepage": "https://github.com/zircote/swagger-php",
+            "description": "swagger-php - Generate interactive documentation for your RESTful API using phpdoc annotations",
+            "homepage": "https://github.com/zircote/swagger-php/",
             "keywords": [
                 "api",
                 "json",
@@ -9511,9 +9505,9 @@
             ],
             "support": {
                 "issues": "https://github.com/zircote/swagger-php/issues",
-                "source": "https://github.com/zircote/swagger-php/tree/5.1.3"
+                "source": "https://github.com/zircote/swagger-php/tree/4.11.1"
             },
-            "time": "2025-05-20T03:35:10+00:00"
+            "time": "2024-10-15T19:20:02+00:00"
         }
     ],
     "packages-dev": [
