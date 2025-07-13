@@ -8,9 +8,51 @@ use App\Models\PnftCard;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
+use App\Services\BattleService;
 
 class BattleController extends Controller
 {
+
+
+
+    public function quickMatch(Request $request)
+    {
+        $request->validate([
+            'battle_style' => 'required|in:funny,hardcore',
+            'card_count' => 'required|in:1,3,5,10,20,50',
+            'skill_level' => 'nullable|in:beginner,intermediate,advanced,expert'
+        ]);
+
+        $cacheKey = "quick_match:{$request->battle_style}:{$request->card_count}:{$request->skill_level}";
+
+        $availableBattles = Cache::tags(['matchmaking'])->remember($cacheKey, 30, function () use ($request) {
+            return Battle::where('status', 'pending')
+                ->where('battle_style', $request->battle_style)
+                ->where('card_count', $request->card_count)
+                ->whereNull('player2_id')
+                ->where('player1_id', '!=', $request->user()->id)
+                ->when($request->skill_level, function ($query, $skillLevel) {
+                    return $query->whereHas('player1', function ($q) use ($skillLevel) {
+                        $q->where('skill_level', $skillLevel);
+                    });
+                })
+                ->with('player1')
+                ->limit(10)
+                ->get();
+        });
+
+        $selectedBattle = $availableBattles->random();
+
+        return response()->json([
+            'success' => true,
+            'battle' => $selectedBattle,
+            'found_match' => $selectedBattle !== null,
+            'queue_size' => $availableBattles->count()
+        ]);
+    }
+
+
     public function index(Request $request)
     {
         $battles = $request->user()->battles()

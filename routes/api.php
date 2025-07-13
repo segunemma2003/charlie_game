@@ -14,6 +14,8 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\AiOpponentController;
 use App\Http\Controllers\ApiDocumentationController;
+use App\Http\Controllers\BattleWebSocketController;
+use App\Http\Controllers\NFTController;
 
 // Health check endpoint
 Route::get('/health', function () {
@@ -334,4 +336,19 @@ Route::fallback(function () {
             'public' => '/api/public/*'
         ]
     ], 404);
+});
+
+
+Route::middleware(['auth:sanctum'])->prefix('battles/realtime')->group(function () {
+    Route::post('/{battle}/join', [BattleWebSocketController::class, 'joinBattle']);
+    Route::post('/{battle}/play', [BattleWebSocketController::class, 'playRound']);
+    Route::get('/{battle}/state', [BattleWebSocketController::class, 'getBattleState']);
+});
+
+
+Route::middleware(['auth:sanctum'])->prefix('nft')->group(function () {
+    Route::post('/cards/{card}/mint', [NFTController::class, 'requestMinting']);
+    Route::get('/transactions/{transaction}/status', [NFTController::class, 'getMintingStatus']);
+    Route::get('/history', [NFTController::class, 'getMintingHistory']);
+    Route::get('/metadata/{tokenId}', [NFTController::class, 'getTokenMetadata']);
 });

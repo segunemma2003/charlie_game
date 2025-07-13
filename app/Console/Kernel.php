@@ -61,6 +61,10 @@ class Kernel extends ConsoleKernel
                  ->daily()
                  ->at('05:00');
 
+        $schedule->command('nft:check-pending')
+         ->everyFiveMinutes()
+         ->withoutOverlapping();
+
         // Clear cache for leaderboards
         $schedule->call(function () {
             \Illuminate\Support\Facades\Cache::tags(['leaderboards'])->flush();
